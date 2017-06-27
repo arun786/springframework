@@ -1,5 +1,6 @@
 package DependencyInjection;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,8 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @ComponentScan
 @PropertySource("classpath:application.properties")
 public class FileReadingApp {
+	
+	static Logger logger = Logger.getLogger(FileReadingApp.class);
 
 	
 	@Bean
@@ -22,7 +25,10 @@ public class FileReadingApp {
 	public static void main(String[] args) {
 		ApplicationContext context = new AnnotationConfigApplicationContext(FileReadingApp.class);
 		IFileProcessingService fps = (IFileProcessingService) context.getBean("fileProcessService");
+		logger.info("Read a File in String Format");
 		fps.processAFile();
+		logger.info("read a File setting it to a bean");
+		fps.processAFileInBeanFormat();
 	}
 
 }

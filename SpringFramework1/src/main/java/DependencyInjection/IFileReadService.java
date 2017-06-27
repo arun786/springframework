@@ -12,5 +12,7 @@ import java.util.List;
 public interface IFileReadService {
 	
 	List<String> readAFile(String filename);
+	
+	List<CartierBean> readAFileInCartierBean(String filename);
 
 }

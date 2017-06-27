@@ -12,9 +12,9 @@ public class FileProcessService implements IFileProcessingService {
 
 	@Autowired
 	private IFileReadService frs;
-	
+
 	Logger logger = Logger.getLogger(FileProcessService.class);
-	
+
 	@Value("${report.filename}")
 	private String filename;
 
@@ -22,5 +22,10 @@ public class FileProcessService implements IFileProcessingService {
 		logger.info("Processing the file");
 		List<String> lstOfLines = frs.readAFile(filename);
 		lstOfLines.forEach(System.out::println);
+	}
+
+	public void processAFileInBeanFormat() {
+		List<CartierBean> lists = frs.readAFileInCartierBean(filename);
+		lists.forEach(System.out::println);
 	}
 }

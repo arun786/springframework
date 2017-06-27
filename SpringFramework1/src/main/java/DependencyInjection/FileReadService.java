@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FileReadService implements IFileReadService {
-	
+
 	Logger logger = Logger.getLogger(FileReadService.class);
 
 	/**
@@ -26,6 +26,17 @@ public class FileReadService implements IFileReadService {
 			e.printStackTrace();
 		}
 		return lstFiles;
+	}
+
+	public List<CartierBean> readAFileInCartierBean(String filename) {
+		List<String> listFiles = readAFile(filename);
+		List<CartierBean> listBean = new ArrayList<>();
+		for(String lines : listFiles){
+			String [] line = lines.split(",");
+			CartierBean cartierBean = new CartierBean(line[0],line[1],line[2],line[3],line[4],line[5]);
+			listBean.add(cartierBean);
+		}
+		return listBean;
 	}
 
 }
