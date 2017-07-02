@@ -12,9 +12,9 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Configuration
 @ComponentScan
 @PropertySource("classpath:application.properties")
-public class FileReadingApp {
+public class ConfigurationFileReadingApp {
 	
-	static Logger logger = Logger.getLogger(FileReadingApp.class);
+	static Logger logger = Logger.getLogger(ConfigurationFileReadingApp.class);
 
 	
 	@Bean
@@ -23,7 +23,7 @@ public class FileReadingApp {
 	}
 
 	public static void main(String[] args) {
-		ApplicationContext context = new AnnotationConfigApplicationContext(FileReadingApp.class);
+		ApplicationContext context = new AnnotationConfigApplicationContext(ConfigurationFileReadingApp.class);
 		IFileProcessingService fps = (IFileProcessingService) context.getBean("fileProcessService");
 		logger.info("Read a File in String Format");
 		fps.processAFile();
