@@ -1,4 +1,4 @@
-package DependencyInjection;
+package process;
 
 public interface IFileProcessingService {
 

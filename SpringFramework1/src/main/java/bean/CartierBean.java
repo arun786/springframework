@@ -1,4 +1,4 @@
-package DependencyInjection;
+package bean;
 
 public class CartierBean {
 	private String auctionId;

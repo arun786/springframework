@@ -1,4 +1,4 @@
-package DependencyInjection;
+package configuration;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
@@ -9,14 +9,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
+import process.IFileProcessingService;
+
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = { "process", "Service" })
 @PropertySource("classpath:application.properties")
 public class ConfigurationFileReadingApp {
-	
+
 	static Logger logger = Logger.getLogger(ConfigurationFileReadingApp.class);
 
-	
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();

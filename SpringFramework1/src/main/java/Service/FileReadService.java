@@ -1,4 +1,4 @@
-package DependencyInjection;
+package Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
+
+import bean.CartierBean;
 
 @Component
 public class FileReadService implements IFileReadService {
