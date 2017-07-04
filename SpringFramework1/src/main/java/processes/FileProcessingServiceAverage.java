@@ -1,12 +1,12 @@
-package process;
+package processes;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
-import Service.IFileReadService;
-import bean.CartierBean;
+import Services.IFileReadService;
+import beans.CartierBean;
 
 public class FileProcessingServiceAverage implements IFileProcessingService {
 

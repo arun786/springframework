@@ -1,11 +1,11 @@
 /**
  * 
  */
-package Service;
+package Services;
 
 import java.util.List;
 
-import bean.CartierBean;
+import beans.CartierBean;
 
 /**
  * @author Adwiti

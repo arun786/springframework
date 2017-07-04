@@ -1,4 +1,4 @@
-package process;
+package processes;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import Service.IFileReadService;
-import bean.CartierBean;
+import Services.IFileReadService;
+import beans.CartierBean;
 
 @Component
 public class FileProcessService implements IFileProcessingService {

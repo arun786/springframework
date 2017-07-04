@@ -1,4 +1,4 @@
-package configuration;
+package configurations;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
-import process.IFileProcessingService;
+import processes.IFileProcessingService;
 
 @Configuration
 @ComponentScan(basePackages = { "process", "Service" })
