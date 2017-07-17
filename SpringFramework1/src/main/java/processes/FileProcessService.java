@@ -10,12 +10,24 @@ import org.springframework.stereotype.Component;
 
 import Services.IFileReadService;
 import beans.CartierBean;
+import beans.Student;
 
 @Component
 public class FileProcessService implements IFileProcessingService {
 
 	@Autowired
 	private IFileReadService frs;
+
+	@Autowired
+	private Student getStudentBelow21;
+
+	/*
+	 * @Qualifier is to identify a bean if the same type is defined twice in
+	 * configuration
+	 */
+	@Autowired
+	@Qualifier(value = "getStudentAbove21")
+	private Student student;
 
 	Logger logger = Logger.getLogger(FileProcessService.class);
 
@@ -31,5 +43,7 @@ public class FileProcessService implements IFileProcessingService {
 	public void processAFileInBeanFormat() {
 		List<CartierBean> lists = frs.readAFileInCartierBean(filename);
 		lists.forEach(System.out::println);
+		System.out.println(getStudentBelow21.getName());
+		System.out.println(student.getAge());
 	}
 }
