@@ -1,8 +1,9 @@
 package configurations;
 
 import org.apache.log4j.Logger;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import processes.IFileProcessingService;
 @Configuration
 @ComponentScan(basePackages = { "processes", "Services" })
 @PropertySource("classpath:application.properties")
+@EnableAutoConfiguration
 public class ConfigurationFileReadingApp {
 
 	/*
@@ -59,7 +61,7 @@ public class ConfigurationFileReadingApp {
 	}
 
 	public static void main(String[] args) {
-		ApplicationContext context = new AnnotationConfigApplicationContext(ConfigurationFileReadingApp.class);
+		ConfigurableApplicationContext context = SpringApplication.run(ConfigurationFileReadingApp.class, args);
 		IFileProcessingService fps = (IFileProcessingService) context.getBean("fileProcessService");
 		logger.info("Read a File in String Format");
 		fps.processAFile();
